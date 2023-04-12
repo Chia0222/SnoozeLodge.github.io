@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Snooze Lodge - Home</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
+	<link rel="stylesheet" type="text/css"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		/* CSS styles */
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			font-family: 'Lato', sans-serif;
+			font-size: 16px;
+			line-height: 1.5;
+			color: black;
+		}
+
+		header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 1rem;
+			background-color: #fff;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}
+
+		/* Navigation Bar CSS Start */
+
+		#navbar-Container {
+			position: static;
+			width: 100%;
+			height: 12vh;
+			top: 0;
+			background-color: #ffffff;
+			box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+			z-index: 10;
+		}
+
+
+		nav {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			min-height: 8vh;
+		}
+
+		.logo img {
+			height: 90px;
+			width: auto;
+		}
+
+		nav ul {
+			display: flex;
+			justify-content: space-around;
+			width: 60%;
+		}
+
+		nav ul li {
+			list-style: none;
+			margin-top: 20px;
+			margin-left: 10px;
+		}
+
+		nav ul li a {
+			color: black;
+			text-decoration: none;
+			font-size: 20px;
+			font-weight: bold;
+			padding: 3px;
+		}
+
+		nav ul li a:hover {
+			list-style: none;
+			color: #FFD700;
+		}
+
+		.dropdown {
+			display: inline-block;
+			position: relative;
+		}
+
+
+		.dropdown .dropbtn {
+			cursor: pointer;
+			font-size: 19px;
+			font-weight: bold;
+			border: none;
+			color: rgb(0, 0, 0);
+			background-color: white;
+			font-family: "Hammersmith One";
+		}
+
+		.dropdown:hover .dropbtn {
+			color: #FFD700;
+		}
+
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			overflow: auto;
+			background-color: #ffffff;
+			min-width: 160px;
+			box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+			z-index: 1;
+		}
+
+		.dropdown:hover .dropdown-content {
+			color: rgb(211, 211, 211);
+			display: block;
+		}
+
+		.dropdown-content a {
+			float: left;
+			color: rgb(0, 0, 0);
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+		}
+
+		.dropdown-content a:hover {
+			background-color: #ddd;
+			color: #C5B358;
+		}
+
+		#link6 {
+			border: 2px solid black;
+			padding: 3px;
+
+		}
+
+		.burger div {
+			width: 25px;
+			height: 3px;
+			background: black;
+			border-radius: 2px;
+			margin: 5px;
+		}
+
+		.burger {
+			display: none;
+			cursor: pointer;
+		}
+
+
+		/* Navigation Bar CSS End */
+
+		.hero {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			position: relative;
+			color: black;
+			text-align: center;
+		}
+
+		.hero::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 100%), url('image/bgimage.jpg');
+			/* adjust the colors and opacity levels as desired */
+			background-size: cover;
+			background-position: center;
+			z-index: -1;
+			/* set the z-index to be lower than the content */
+			opacity: 0.7;
+			transition: opacity 0.3s ease-in-out;
+			/* add a transition effect */
+		}
+
+		.hero:hover::before {
+			opacity: 1;
+			/* increase the opacity on hover */
+		}
+
+		.hero h2 {
+			font-size: 3rem;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			margin-bottom: 1rem;
+		}
+
+		.hero p {
+			font-size: 1.2rem;
+			font-weight: 500;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			margin-bottom: 2rem;
+		}
+
+		.btn {
+			display: inline-block;
+			padding: 1rem 2rem;
+			background-color: #f5a623;
+			color: #fff;
+			text-transform: uppercase;
+			font-size: 1.2rem;
+			font-weight: 500;
+			letter-spacing: 1px;
+			border: none;
+			border-radius: 2rem;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+
+		.btn:hover {
+			background-color: #333;
+		}
+
+		.features {
+			display: flex;
+			flex-wrap: wrap;
+			padding: 4rem;
+			background-color: #f5f5f5;
+		}
+
+		.feature-box {
+			flex: 1 1 30%;
+			margin: 1rem;
+			background-color: #fff;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			padding: 2rem;
+			text-align: center;
+			transition: all 0.3s ease;
+		}
+
+		.feature-box:hover {
+			transform: translateY(-10px);
+		}
+
+		.feature-box img {
+			width: 100%;
+			margin-bottom: 1rem;
+		}
+
+		.feature-box h3 {
+			font-size: 1.5rem;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			margin-bottom: 1rem;
+		}
+
+		.feature-box p {
+			font-size: 1.2rem;
+			font-weight: 500;
+			line-height: 1.5;
+			margin-bottom: 1rem;
+		}
+
+		.cta {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 50vh;
+			background-color: #333;
+			color: #fff;
+			text-align: center;
+		}
+
+		.cta h2 {
+			font-size: 2rem;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			margin-bottom: 1rem;
+		}
+
+		.cta p {
+			font-size: 1.2rem;
+			font-weight: 500;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			margin-bottom: 2rem;
+		}
+
+		.cta .btn {
+			margin-top: 2rem;
+		}
+
+
+		/* Footer Section Start */
+
+		.footer-Container {
+			max-width: 1320px;
+			margin: auto;
+			margin-top: 50px;
+		}
+
+		.rows {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin-bottom: 0%;
+		}
+
+
+		.footer {
+			font-size: 16px;
+			background-color: rgb(0, 0, 0);
+			padding: 10px 0;
+		}
+
+		.columns {
+			width: 25%;
+			padding: 0 15px;
+		}
+
+		.columns h4 {
+			font-size: 18px;
+			color: #ffffff;
+			text-transform: capitalize;
+			margin-bottom: 35px;
+			font-weight: 500;
+			position: relative;
+		}
+
+		.columns h4:hover {
+			transform: translate(5px);
+			color: #FFD700;
+		}
+
+		.columns h4::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: -10px;
+			background-color: #FFD700;
+			height: 2px;
+			box-sizing: border-box;
+			width: 50px;
+		}
+
+		.columns ul li:not(:last-child) {
+			margin-bottom: 10px;
+		}
+
+		.columns ul li {
+			color: #ffffff;
+		}
+
+		.columns ul li a {
+			color: #ffffff;
+			text-transform: capitalize;
+			text-decoration: none;
+			font-weight: 300;
+			display: block;
+			transition: all 0.3s ease;
+			margin-left: 15px;
+		}
+
+		.columns ul li a:hover {
+			padding-left: 8px;
+		}
+
+		.columns .social-links a {
+			display: inline-block;
+			height: 40px;
+			width: 40px;
+			background-color: rgb(0, 0, 0);
+			margin: 0 10px 10px 0;
+			text-align: center;
+			line-height: 40px;
+			border-radius: 50%;
+			color: #ffffff;
+			transition: all 0.5s ease;
+		}
+
+		.columns .social-links a:hover {
+			color: #ffffff;
+			background-color: #FFD700;
+			transform: translate(5px);
+		}
+
+		#divided {
+			border: 2px solid white !important;
+		}
+
+		#copyright {
+			color: white;
+			font-size: 14px;
+		}
+
+		#term-condition {
+			color: white;
+			font-size: 14px;
+			float: right;
+		}
+
+		/* Footer Section Start */
+		/*const navSlide=()=> {
+			const burger=document.querySelector('.burger');
+			const nav=document.querySelector('.nav-links');
+			const navLinks=document.querySelectorAll('.nav-links li');
+
+			burger.addEventListener('click', ()=> {
+					// Toggle Nav
+					nav.classList.toggle('nav-active');
+
+					// Animate Links
+					navLinks.forEach((link, index)=> {
+							if (link.style.animation) {
+								link.style.animation='';
+							}
+
+							else {
+								link.style.animation=`navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+							}
+						});
+
+					// Burger Animation
+					burger.classList.toggle('toggle');
+				});
+		}
+
+		navSlide();*/
+	</style>
+</head>
+
+<body>
+	<!--Navigation Bar Start-->
+	<div id="navbar-Container">
+		<nav>
+			<div class="logo">
+				<a href="homepage2.html"><img src="image/logo.png" alt="Logo"></a>
+			</div>
+			<ul class="nav-links" id="nav-links">
+				<li class="links" id="link1"><a href="homepage2.html">Home</a></li>
+				<div class="dropdown">
+					<li class="links" id="link2">
+						<button class="dropbtn">Room Type
+							<i class="fa fa-caret-down"></i>
+						</button></a>
+					</li>
+					<div class="dropdown-content">
+						<a href="rooms.html" class="dropdown-link">Single Room</a>
+						<a href="rooms.html" class="dropdown-link">Twin Sharing</a>
+						<a href="rooms.html" class="dropdown-link">Whole Unit</a>
+					</div>
+				</div>
+				<li class="links" id="link3"><a href="About.html">About</a></li>
+				<li class="links" id="link4"><a href="FAQ.html">FAQ</a></li>
+				<li class="links" id="link5"><a href="book.html">Book Now</a></li>
+			</ul>
+			<div class="burger" id="burger">
+				<div id="line1" class="line"></div>
+				<div id="line2" class="line"></div>
+				<div id="line3" class="line"></div>
+			</div>
+		</nav>
+	</div>
+	<!--Navigation Bar End-->
+
+
+
+	<section class="hero">
+		<h2><b>Welcome to Snooze Lodge</b></h2>
+		<p>Your home away from home</p>
+		<a href="book.html" class="btn">Book Now</a>
+	</section>
+
+	<section class="features">
+		<div class="feature-box">
+			<img src="image/feature-1.jpg" width="500" height="300" alt="Feature 1">
+			<h3>Modern and Stylish Rooms</h3>
+			<p>Our rooms are designed with a modern and stylish aesthetic, perfect for guests looking for a comfortable
+				and chic stay.</p>
+		</div>
+		<div class="feature-box">
+			<img src="image/feature-2.jpg" width="500" height="300" alt="Feature 2">
+			<h3>Convenient Services</h3>
+			<p>We offer a range of convenient services, including 24-hour front desk, room service, and laundry
+				facilities.</p>
+		</div>
+		<div class="feature-box">
+			<img src="image/feature-3.jpg" width="500" height="300" alt="Feature 3">
+			<h3>Prime Locations</h3>
+			<p>All of our locations are situated in prime areas, with easy access to local attractions and
+				transportation.</p>
+		</div>
+	</section>
+	<section class="cta">
+		<h2>Book Your Stay Today</h2>
+		<p>Experience the comfort and style of Snooze Lodge</p>
+		<a href="book.html" class="btn">Book Now</a>
+	</section>
+
+	<!--Footer Section Start-->
+	<footer class="footer">
+		<div class="footer-Container">
+			<div class="rows">
+				<div class="columns">
+					<h4>Our page</h4>
+					<ul>
+						<li><a href="homepage2.html">Home</a></li>
+						<li><a href="rooms.html">Room Type</a></li>
+						<li><a href="About.html">About Us</a></li>
+						<li><a href="FAQ.html">FAQ</a></li>
+						<li><a href="book.html">Booking</a></li>
+					</ul>
+				</div>
+				<div class="columns">
+					<h4>Operation Hour</h4>
+					<ul>
+						<li>Monday - Friday: 9:00 - 17:00</li>
+						<li>Saturday: 9:00 - 12:00</li>
+						<li>Sunday: OFF</li>
+					</ul>
+				</div>
+				<div class="columns">
+					<h4>Contact Us</h4>
+					<ul>
+						<li>Phone | +60 3 - 1234 5678</li>
+						<li>Phone | +6012 - 345 6789</li>
+						<li>Email&nbsp; | SnoozeLodge@gmail.com</li>
+						<li>Jalan Universiti, Bandar Barat, 31900 Kampar, Perak</li>
+					</ul>
+				</div>
+				<div class="columns">
+					<h4>Follow Us</h4>
+					<div class="social-links">
+						<a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+						<a href="https://twitter.com/home"><i class="fab fa-twitter"></i></a>
+						<a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+						<a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+					</div>
+				</div>
+			</div>
+			<hr id="divided">
+			<span id="copyright">&copy; Snooze Lodge 2023. All right reserved</span>
+			<a href="Terms-And-Conditions.html"><span id="term-condition">Terms and Conditions</span></a>
+		</div>
+	</footer>
+	<!--Footer Section End-->
+
+	<script type="text/javascript">
+		// JavaScript for dropdown menu on hover
+		const dropdown = document.querySelectorAll('.dropdown');
+		const dropdownArray = Array.from(dropdown);
+		dropdownArray.forEach(link => {
+			link.addEventListener('mouseover', () => {
+				link.classList.add('show');
+			});
+			link.addEventListener('mouseleave', () => {
+				link.classList.remove('show');
+			});
+		});
+	</script>
+
+</body>
+
+</html>
